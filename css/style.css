@@ -66,7 +66,12 @@ body {
     display: inline;
 }
 
-.text {
+.text-white {
     color: white;
+    font-size: 1.3vw;
+}
+
+.text-black {
+    color: black;
     font-size: 1.3vw;
 }
