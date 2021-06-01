@@ -3,6 +3,25 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/style.css">
+        <script>
+            function getCurrentTime() {
+                var date = new Date();
+                var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+                var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+                var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+                time = hours + ":" + minutes + ":" + seconds;
+                var lblTime = document.getElementById("lblTime");
+                return time;
+            };
+
+            function updateTime() {
+                var ele = document.getElementById("time");
+                
+                ele.innerHTML = "Hora Actual: " + getCurrentTime();
+            }
+
+            setInterval(updateTime,1000);
+        </script>
     </head>
     <body>
         <div class="bg">
@@ -30,7 +49,7 @@
                     <a href="https://www.detecemp.com/"><img src="img/pictograma-08.svg" class="icon white-svg"></a>
                 </div>
                 <div style="position: absolute; height: 15vh; left: 25vw; text-align: center; line-height: 15vh;" class="text-white">Presentes [98]</div>
-                <div style="position: absolute; height: 15vh; left: calc(50% - 5vw); text-align: center; line-height: 15vh;" class="text-white">Hora Actual: 14:50:35</div>
+                <div style="position: absolute; height: 15vh; left: calc(50% - 5vw); text-align: center; line-height: 15vh;" class="text-white" id="time">Hora Actual: 14:50:35</div>
                 <div style="position: absolute; right: 3vw;">
                     <a href="https://www.detecemp.com/" class="right"><img src="img/pictograma-06.svg" class="icon white-svg"></a>
                 </div>
