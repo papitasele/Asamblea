@@ -62,7 +62,7 @@ body {
 
 .icon {
     margin: 0;
-    width: 5vw;
+    width: 6vw;
     display: inline;
 }
 
@@ -74,4 +74,12 @@ body {
 .text-black {
     color: black;
     font-size: 1.3vw;
+}
+
+.side-menu {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    background-color: rgba(255,255,255,0.8);
+    z-index: 100;
 }

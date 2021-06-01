@@ -18,7 +18,7 @@
             function updateTime() {
                 var ele = document.getElementById("time");
                 
-                ele.innerHTML = "Hora Actual: " + getCurrentTime();
+                ele.innerHTML = "DTE Asamblea - Hora Actual: " + getCurrentTime();
             }
 
             setInterval(updateTime,1000);
@@ -26,6 +26,9 @@
     </head>
     <body>
         <div class="bg">
+            <div class="side-menu">
+
+            </div>
             <div style="width: 100%; text-align: center; position: absolute; top: calc(50% - 50vh);" class="text-black">
                 <p style="display: inline-block; vertical-align: middle;">ASAMBLEA GENERAL EXTRAORDINARIA DEL COLEGIO DE DEMOSTRACIÓN DE COSTA RICA</p>
             </div>
@@ -42,7 +45,7 @@
                 </div>
             </div>
             <div style="width: 100%; text-align: center; position: absolute; top: calc(50% + 24vh); color: #999" class="text-black">
-                <p style="display: inline-block; vertical-align: middle;">DTE Asamblea</p>
+                <p style="display: inline-block; vertical-align: middle;" id="time">DTE Asamblea - Hora Actual: 14:50:35</p>
             </div>
             <div class="inline bottom">
                 <div style="position: absolute; left: 3vw;">
@@ -50,7 +53,6 @@
                     <a href="https://www.detecemp.com/"><img src="img/pictograma-08.svg" class="icon white-svg"></a>
                 </div>
                 <div style="position: absolute; height: 15vh; left: 25vw; text-align: center; line-height: 15vh;" class="text-white">Presentes [98]</div>
-                <div style="position: absolute; height: 15vh; left: calc(50% - 5vw); text-align: center; line-height: 15vh;" class="text-white" id="time">Hora Actual: 14:50:35</div>
                 <div style="position: absolute; right: 3vw;">
                     <a href="https://www.detecemp.com/" class="right"><img src="img/pictograma-06.svg" class="icon white-svg"></a>
                 </div>
