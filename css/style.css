@@ -14,21 +14,31 @@ body {
     height: 100%;
     background-image: url("../img/Fondo-01.svg");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 100% auto;
     margin: 0;
     background-color: black;
 }
 
-.white-svg {
-    filter: invert(100%) sepia(0%) saturate(7468%) hue-rotate(88deg) brightness(99%) contrast(102%);
+.title {
+    width: 100%; 
+    text-align: center;
 }
 
-.color-ccc {
-    filter: invert(77%) sepia(100%) saturate(0%) hue-rotate(140deg) brightness(92%) contrast(92%);
+.title > p {
+    display: inline-block;
+    vertical-align: middle;
+    color: black;
 }
 
-.color-777 {
-    filter: invert(49%) sepia(4%) saturate(26%) hue-rotate(0deg) brightness(94%) contrast(90%);
+.info-box {
+    width: 100%; 
+    text-align: center;
+}
+
+.info-box > p {
+    display: inline-block;
+    vertical-align: middle;
+    color: black;
 }
 
 .inline > * {
@@ -36,42 +46,289 @@ body {
     vertical-align:middle;
 }
 
-.main-menu {
+.other-menu .left {
     position: absolute;
-    top: calc(50% + 12vh);
+    left: 0;
 }
 
-.center {
-    width: 100%;
-}
-
-.center > .inner {
-    display: table;
-    margin: 0 auto;
-}
-
-.bottom {
-    width: 100%;
+.other-menu .right {
     position: absolute;
-    top: calc(50% + 31vh);
+    right: 0;
 }
 
-.right {
-    float: right;
+.svg-color-white {
+    filter: invert(100%) sepia(0%) saturate(7468%) hue-rotate(88deg) brightness(99%) contrast(102%);
 }
 
-.icon {
-    margin: 0;
-    width: 7vw;
-    display: inline;
+.svg-color-gray {
+    filter: invert(77%) sepia(100%) saturate(0%) hue-rotate(140deg) brightness(92%) contrast(92%);
 }
 
-.text-white {
-    color: white;
-    font-size: 1.3vw;
+.svg-color-darkgray {
+    filter: invert(7%) sepia(54%) saturate(0%) hue-rotate(300deg) brightness(99%) contrast(87%);
 }
 
 .text-black {
     color: black;
-    font-size: 1.3vw;
+}
+
+.title p, .info-box p {
+    margin: 5px;
+}
+
+
+.side-menu {
+    position: absolute;
+    width: 200px;
+    height: 100%;
+    background-color: rgba(255,255,255,0.8);
+    z-index: 100;
+    left: -200px;
+}
+
+.side-menu .side-container {
+    width: 100%;
+    height: 100%;
+}
+
+.side-menu.side-menu-visible {
+    left: 0;
+}
+
+.side-menu .side-toggle {
+    position: absolute;
+    top: calc(50% - 60px);
+    left: 200px;
+    
+    width: 50px;
+    height: 75px;
+    background-color: #555;
+
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    display: flex;
+    cursor: pointer;
+}
+
+.side-toggle .bars {
+    margin: auto;
+}
+
+.side-toggle .bar1, .side-toggle .bar2, .side-toggle .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: .3s;
+}
+
+.side-menu .side-container {
+    overflow-y: scroll;
+}
+
+.side-menu .side-container > div {
+    display: table;
+}
+
+
+/* Smartphones (landscape) ----------- */
+@media (min-width : 320px) {
+    .main-menu, .other-menu {
+        display: none;
+    }
+
+    .icon {
+        margin: 5px;
+        width: 65px;
+        display: inline;
+    }
+}
+
+/* Smartphones (portrait) ----------- */
+@media (max-width: 480px) {
+    .bg {
+        background-size: 180% auto;
+        background-position-x: center;
+    }
+
+    .info-box {
+        position: absolute;
+        top: 90%;   
+    }
+
+    .info-box > p {
+        color: white;
+    }
+}
+
+@media (min-width : 480px) {
+    .main-menu, .other-menu {
+        display: none;
+    }
+
+    .icon {
+        margin: 5px;
+        width: 65px;
+        display: inline;
+    }
+
+    .other-menu {
+        position: absolute;
+        bottom: 18vh;
+    }
+}
+
+/* Small Screens ----------- */
+@media (max-width: 800px) {
+    .bg {
+        background-size: 190% auto;
+        background-position-x: center;
+    }
+}
+
+@media (max-width: 800px) and (orientation:landscape) {
+    .bg {
+        background-size: 100% auto;
+        background-position-x: center;
+    }
+
+    .info-box {
+        position: absolute;
+        top: 90%;   
+    }
+
+    .info-box > p {
+        color: white;
+    }
+}
+
+@media (min-width : 800px) {
+    .main-menu, .other-menu {
+        display: none;
+    }
+
+    .icon {
+        margin: 5px;
+        width: 65px;
+        display: inline;
+    }
+
+    .other-menu {
+        position: absolute;
+        bottom: 18vh;
+    }
+}
+
+/* Laptop Screens ----------- */
+@media (min-width : 1025px) {
+    .side-menu {
+        display: none;
+    }
+
+    .main-menu {
+        position: absolute;
+        top: 60%;
+    }
+    
+    .main-menu, .other-menu {
+        display: block;
+        width: 100%;
+    }
+
+    .main-menu > *, .other-menu > * {
+        display: table;
+        margin: 0 auto;
+    }
+
+    .icon {
+        margin: 0;
+        width: 100px;
+        display: inline;
+    }
+
+    .info-box {
+        position: absolute;
+        top: 85%;
+        left: 0;
+    }
+
+    .info-box > p {
+        color: white;
+    }
+
+    .other-menu {
+        position: absolute;
+        bottom: 155px;
+    }
+}
+
+/* Big Screens ----------- */
+@media (min-width : 1280px) {
+    .main-menu {
+        position: absolute;
+        top: 70%;
+    }
+    
+    .main-menu, .other-menu {
+        display: block;
+        width: 100%;
+    }
+
+    .main-menu > *, .other-menu > * {
+        display: table;
+        margin: 0 auto;
+    }
+
+    .icon {
+        margin: 0;
+        width: 100px;
+        display: inline;
+    }
+
+    .info-box {
+        position: absolute;
+        top: 85%;
+        left: 0;
+    }
+
+    .other-menu {
+        position: absolute;
+        bottom: 155px;
+    }
+}
+
+/* Bigger Screens ----------- */
+@media (min-width : 1450px) {
+    .main-menu {
+        position: absolute;
+        top: 70%;
+    }
+    
+    .main-menu, .other-menu {
+        display: block;
+        width: 100%;
+    }
+
+    .main-menu > *, .other-menu > * {
+        display: table;
+        margin: 0 auto;
+    }
+
+    .icon {
+        margin: 0;
+        width: 100px;
+        display: inline;
+    }
+
+    .info-box {
+        position: absolute;
+        bottom: 5vh;
+        left: 0;
+    }
+
+    .other-menu {
+        position: absolute;
+        bottom: 155px;
+    }
 }
