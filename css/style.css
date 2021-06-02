@@ -28,7 +28,7 @@ body {
 }
 
 .color-777 {
-    filter: invert(31%) sepia(3%) saturate(0%) hue-rotate(267deg) brightness(102%) contrast(93%);
+    filter: invert(49%) sepia(4%) saturate(26%) hue-rotate(0deg) brightness(94%) contrast(90%);
 }
 
 .inline > * {
@@ -62,7 +62,7 @@ body {
 
 .icon {
     margin: 0;
-    width: 6vw;
+    width: 7vw;
     display: inline;
 }
 
@@ -74,64 +74,4 @@ body {
 .text-black {
     color: black;
     font-size: 1.3vw;
-}
-
-.side-menu {
-    position: absolute;
-    width: 20vw;
-    height: 100%;
-    background-color: rgba(255,255,255,0.8);
-    z-index: 100;
-    left: -20vw;
-}
-
-.side-menu.side-menu-visible {
-    left: 0;
-}
-
-.side-menu .side-toggle {
-    position: absolute;
-    top: calc(50% - 60px);
-    left: 20vw;
-    
-    width: 50px;
-    height: 120px;
-    background-color: rgb(0, 145, 182);
-
-    border-top-right-radius: 40px;
-    border-bottom-right-radius: 40px;
-
-    display: flex;
-    cursor: pointer;
-}
-
-.side-toggle .bars {
-    margin: auto;
-}
-
-.side-toggle .bar1, .side-toggle .bar2, .side-toggle .bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: #fff;
-    margin: 6px 0;
-    transition: .3s;
-}
-
-.side-toggled .bar1 {
-    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-    transform: rotate(-45deg) translate(-9px, 6px);
-}
-  
-.side-toggled .bar2 {
-    opacity: 0;
-}
-  
-.side-toggled .bar3 {
-    -webkit-transform: rotate(45deg) translate(-8px, -8px);
-    transform: rotate(45deg) translate(-8px, -8px);
-}
-
-.side-menu .side-bottom {
-    position: absolute;
-    bottom: 0%;
 }
