@@ -38,7 +38,7 @@ body {
 .info-box > p {
     display: inline-block;
     vertical-align: middle;
-    color: #999
+    color: black;
 }
 
 .inline > * {
@@ -72,6 +72,66 @@ body {
     color: black;
 }
 
+.title p, .info-box p {
+    margin: 5px;
+}
+
+
+.side-menu {
+    position: absolute;
+    width: 200px;
+    height: 100%;
+    background-color: rgba(255,255,255,0.8);
+    z-index: 100;
+    left: -200px;
+}
+
+.side-menu .side-container {
+    width: 100%;
+    height: 100%;
+}
+
+.side-menu.side-menu-visible {
+    left: 0;
+}
+
+.side-menu .side-toggle {
+    position: absolute;
+    top: calc(50% - 60px);
+    left: 200px;
+    
+    width: 50px;
+    height: 75px;
+    background-color: #555;
+
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    display: flex;
+    cursor: pointer;
+}
+
+.side-toggle .bars {
+    margin: auto;
+}
+
+.side-toggle .bar1, .side-toggle .bar2, .side-toggle .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: .3s;
+}
+
+.side-menu .side-container {
+    overflow-y: scroll;
+}
+
+.side-menu .side-container > div {
+    display: table;
+}
+
+
 /* Smartphones (landscape) ----------- */
 @media (min-width : 320px) {
     .main-menu, .other-menu {
@@ -79,15 +139,9 @@ body {
     }
 
     .icon {
-        margin: 0;
-        width: 100px;
+        margin: 5px;
+        width: 65px;
         display: inline;
-    }
-
-    .info-box {
-        position: absolute;
-        bottom: 8vh;
-        left: 0;
     }
 }
 
@@ -97,6 +151,15 @@ body {
         background-size: 180% auto;
         background-position-x: center;
     }
+
+    .info-box {
+        position: absolute;
+        top: 90%;   
+    }
+
+    .info-box > p {
+        color: white;
+    }
 }
 
 @media (min-width : 480px) {
@@ -105,15 +168,9 @@ body {
     }
 
     .icon {
-        margin: 0;
+        margin: 5px;
         width: 65px;
         display: inline;
-    }
-
-    .info-box {
-        position: absolute;
-        bottom: 8vh;
-        left: 0;
     }
 
     .other-menu {
@@ -130,21 +187,31 @@ body {
     }
 }
 
+@media (max-width: 800px) and (orientation:landscape) {
+    .bg {
+        background-size: 100% auto;
+        background-position-x: center;
+    }
+
+    .info-box {
+        position: absolute;
+        top: 90%;   
+    }
+
+    .info-box > p {
+        color: white;
+    }
+}
+
 @media (min-width : 800px) {
     .main-menu, .other-menu {
         display: none;
     }
 
     .icon {
-        margin: 0;
-        width: 100px;
+        margin: 5px;
+        width: 65px;
         display: inline;
-    }
-
-    .info-box {
-        position: absolute;
-        bottom: 8vh;
-        left: 0;
     }
 
     .other-menu {
@@ -155,6 +222,10 @@ body {
 
 /* Laptop Screens ----------- */
 @media (min-width : 1025px) {
+    .side-menu {
+        display: none;
+    }
+
     .main-menu {
         position: absolute;
         top: 60%;
@@ -182,6 +253,10 @@ body {
         left: 0;
     }
 
+    .info-box > p {
+        color: white;
+    }
+
     .other-menu {
         position: absolute;
         bottom: 155px;
@@ -192,7 +267,7 @@ body {
 @media (min-width : 1280px) {
     .main-menu {
         position: absolute;
-        top: 65%;
+        top: 70%;
     }
     
     .main-menu, .other-menu {
@@ -227,7 +302,7 @@ body {
 @media (min-width : 1450px) {
     .main-menu {
         position: absolute;
-        top: 65%;
+        top: 70%;
     }
     
     .main-menu, .other-menu {

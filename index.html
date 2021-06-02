@@ -11,11 +11,88 @@
         <link rel="stylesheet" href="css/style.css">
 
         <title>DTE-Asamblea</title>
+
+        <script>
+            function getCurrentTime() {
+                var date = new Date();
+                var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+                var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+                var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+                time = hours + ":" + minutes + ":" + seconds;
+                
+                return time;
+            }
+
+            function rngRange(min, max) { // min and max included 
+                return Math.floor(Math.random() * (max - min + 1) + min)
+            }
+
+            var updateTick = 0;
+            var online = rngRange(50, 200);
+
+            function updateInfo() {
+                var ele = document.getElementById("info");
+                
+                if(updateTick > 10) {
+                    online = rngRange(50, 200);
+                    updateTick = 0;
+                } else {
+                    updateTick++;
+                }
+
+                ele.innerHTML = "DTE Asamblea - Presentes [" + online + "] - Hora Actual: " + getCurrentTime();
+            }
+
+            function toggleSideBar(id) {
+                var jqelement = $("#" + id);
+                
+                if(jqelement.hasClass("side-menu-visible")) {
+                    jqelement.animate({"left": "-200px"}, 500);
+                    jqelement.removeClass("side-menu-visible");
+                } else {
+                    jqelement.animate({"left": "0px"}, 500);
+                    jqelement.addClass("side-menu-visible");
+                }
+            }
+
+            setInterval(updateInfo,1000);
+        </script>
     </head>
     <body>
         <div class="bg">
+            <div class="side-menu center" id="sidebar">
+                <div class="side-container">
+                    <div>
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-01.svg" class="icon"></a>
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-02.svg" class="icon"></a>
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-03.svg" class="icon"></a>
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-09.svg" class="icon"></a>
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-10.svg" class="icon"></a>
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-11.svg" class="icon"></a>
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-04.svg" class="icon"></a>
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-05.svg" class="icon"></a>
+                    </div>
+                    <hr>
+                    <div>
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-07.svg" class="icon"></a>
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-08.svg" class="icon"></a>
+                        <a href="https://www.detecemp.com/" class="right"><img src="img/pictograma-06.svg" class="icon"></a>
+                    </div>
+                </div>
+                <div class="side-toggle" onclick="toggleSideBar('sidebar')">
+                    <div class="bars">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                    </div>
+                </div>
+            </div>
+
             <div class="title">
                 <p>ASAMBLEA GENERAL EXTRAORDINARIA DEL COLEGIO DE DEMOSTRACIÓN DE COSTA RICA</p>
+            </div>
+            <div class="info-box">
+                <p id="info">DTE Asamblea - Presentes [98] - Hora Actual: 14:50:34</p>
             </div>
             <div class="main-menu">
                 <div>
@@ -28,9 +105,6 @@
                     <a href="https://www.detecemp.com/"><img src="img/pictograma-04.svg" class="icon svg-color-darkgray"></a>
                     <a href="https://www.detecemp.com/"><img src="img/pictograma-05.svg" class="icon svg-color-gray"></a>
                 </div>
-            </div>
-            <div class="info-box">
-                <p>DTE Asamblea - Presentes [98] - Hora Actual: 14:50:34</p>
             </div>
             <div class="other-menu">
                 <div class="left">
