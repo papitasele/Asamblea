@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' >
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -51,7 +51,7 @@
                 var jqelement = $("#" + id);
                 
                 if(jqelement.hasClass("side-menu-visible")) {
-                    jqelement.animate({"bottom": "-300px"}, 500);
+                    jqelement.animate({"bottom": "-200px"}, 500);
                     jqelement.removeClass("side-menu-visible");
                 } else {
                     jqelement.animate({"bottom": "0px"}, 500);
@@ -60,33 +60,68 @@
             }
 
             setInterval(updateInfo,1000);
+
+            function updateIFramePos() {
+                var iframe_container = document.getElementById("screen_container");
+                var iframe = document.getElementById("screen");
+
+                var bounds = iframe_container.getBoundingClientRect();
+
+                var x = Math.round(bounds.left + window.scrollX);
+                var y = Math.round(bounds.top + window.scrollY);
+
+                var w = Math.round(bounds.right + window.scrollX) - x;
+                var h = Math.round(bounds.bottom + window.scrollY) - y;
+                
+                //console.log("X: " + x + " Y: " + y + " W: " + w + " H: " + h);
+                
+                iframe.style.left = x + "px";
+                iframe.style.top = y + "px";
+
+                iframe.style.width = w + "px";
+                iframe.style.height = h + "px";    
+            }
+
+            $(document).ready( function() {
+                // Move iframe to page root
+                var iframe_container = document.getElementById("screen_container");
+                var iframe = document.getElementById("screen");
+                iframe.style.position = "absolute";
+                document.body.appendChild(iframe);
+
+                window.addEventListener('resize', updateIFramePos);
+
+                updateIFramePos();
+            });
         </script>
     </head>
     <body>
         <div class="side-menu center" id="sidebar">
             <div class="side-container">
-                <div class="side-left">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#mdAgenda"><img src="img/pictograma-01.svg" class="icon side-svg-icon"></a>
-                    <a href="https://www.detecemp.com/"><img src="img/pictograma-02.svg" class="icon side-svg-icon"></a>
-                    <a href="https://www.detecemp.com/"><img src="img/pictograma-03.svg" class="icon side-svg-icon"></a>
-                    <a href="https://www.detecemp.com/"><img src="img/pictograma-09.svg" class="icon side-svg-icon"></a>
-                    <a href="https://www.detecemp.com/"><img src="img/pictograma-10.svg" class="icon side-svg-icon"></a>
-                    <a href="https://www.detecemp.com/"><img src="img/pictograma-11.svg" class="icon side-svg-icon"></a>
-                    <a href="https://www.detecemp.com/"><img src="img/pictograma-04.svg" class="icon side-svg-icon"></a>
-                    <a href="https://www.detecemp.com/"><img src="img/pictograma-05.svg" class="icon side-svg-icon"></a>
+                <div class="side-menu-container">
+                    <div class="side-left">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#mdAgenda"><img src="img/pictograma-01.svg" class="icon side-svg-icon"></a>
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-02.svg" class="icon side-svg-icon"></a>
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-03.svg" class="icon side-svg-icon"></a>
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-09.svg" class="icon side-svg-icon"></a>
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-10.svg" class="icon side-svg-icon"></a>
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-11.svg" class="icon side-svg-icon"></a>
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-04.svg" class="icon side-svg-icon"></a>
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-05.svg" class="icon side-svg-icon"></a>
+                    </div>
+                    <div class="side-right">
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-07.svg" class="icon side-svg-icon"></a>
+                        <a href="https://www.detecemp.com/"><img src="img/pictograma-08.svg" class="icon side-svg-icon"></a>
+                        <a href="https://www.detecemp.com/" class="right"><img src="img/pictograma-06.svg" class="icon side-svg-icon"></a>
+                    </div>
                 </div>
-                <div class="side-right">
-                    <a href="https://www.detecemp.com/"><img src="img/pictograma-07.svg" class="icon side-svg-icon"></a>
-                    <a href="https://www.detecemp.com/"><img src="img/pictograma-08.svg" class="icon side-svg-icon"></a>
-                    <a href="https://www.detecemp.com/" class="right"><img src="img/pictograma-06.svg" class="icon side-svg-icon"></a>
-                </div>
-            </div>
-            <div class="side-title">
-                <div style="width: 180px;">
-                    <img src="img/logo-dte.png" width="180"/>
-                </div>
-                <div class="text-copy-side text-black" style="width: calc(100% - 180px);">
-                    <p>© 2021 Desarrollo Tecnológico Empresarial ADE S.A.<br>Tel: (506) 4702 5620 / (506) 8753 0128</p>
+                <div class="side-title">
+                    <div style="width: 180px;">
+                        <img src="img/logo-dte.png" width="180"/>
+                    </div>
+                    <div class="text-copy-side text-black" style="width: calc(100% - 180px);">
+                        <p>© 2021 Desarrollo Tecnológico Empresarial ADE S.A.<br>Tel: (506) 4702 5620 / (506) 8753 0128</p>
+                    </div>
                 </div>
             </div>
             <div class="side-toggle" onclick="toggleSideBar('sidebar')">
@@ -97,7 +132,6 @@
                 </div>
             </div>
         </div>
-
         <div class="main-container">
             <div class="bg-parent">
                 <div class="bg">
@@ -7070,15 +7104,17 @@
                         <rect y="638.733" class="st133" width="1383.115" height="139.27"/>
                     </g>
                     <g id="Pantalla">
-                        <rect x="334.322" y="133.052" width="714.472" height="401.89"/>
+                        <rect x="334.322" y="133.052" width="714.472" height="401.89" id="screen_container"/>
                         <foreignObject x="334.322" y="133.052" width="714.472" height="401.89">
-                            <!--<iframe src="https://www.youtube.com/embed/LXb3EKWsInQ" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>-->
+                            <!--<iframe class="fixed" src="https://www.youtube.com/embed/LXb3EKWsInQ" frameborder="0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen="" scrolling="no"></iframe>-->
+                            <iframe id='screen' frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="714.472" height="401.89" type="text/html" src="https://www.youtube.com/embed/DBXH9jJRaDk?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com"></iframe>
                             <!--
                             <div class="iframe-container" style="overflow: hidden; padding-top: 56.25%; position: relative;">
                                 <iframe allow="microphone; camera" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%;" src="https://success.zoom.us/wc/join/71273838007?pwd=elVEQ2FZNWEySTZKQ3c2TzBReUhHUT09" frameborder="0"></iframe>
                             </div>
                             -->
-                            <img src="img/logo-dte.png" width="350"/>
+                            <!--<iframe allow="microphone; camera" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%;" src="https://success.zoom.us/wc/join/71273838007?pwd=elVEQ2FZNWEySTZKQ3c2TzBReUhHUT09" frameborder="0" sandbox="allow-same-origin allow-forms allow-scripts"></iframe>-->
+                            <!--<img src="img/logo-dte.png" width="350"/>-->
                         </foreignObject>
                     </g>
                     <foreignObject x="251.32" y="530.944" width="880" height="125">
@@ -7111,12 +7147,13 @@
                     </foreignObject>
 
                     <foreignObject x="0" y="535" width="1383.115" height="135" class="mobile-show">
-                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block;" class="center">
+                        <!-- position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block; -->
+                        <div style="" class="center">
                             <div class="info-box inner">
                                 <p style="width: 700px;" class="mobile-landscape-hide">DTE Asamblea</p>
                                 <div style="display: flex; width: 700px;">
                                     <p class="lbl-info" style="width: 350px; text-align: left;" format="Presentes [%p%]"></p>
-                                    <p class="lbl-info" style="width: 350px; text-align: right;" format="Hora Actual: %t%"></p>
+                                    <p class="lbl-info" style="width: 350px; text-align: right;" format="Hora Actual: %t%">T</p>
                                 </div>
                             </div>
                         </div>
